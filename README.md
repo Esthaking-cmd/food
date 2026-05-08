@@ -1,200 +1,208 @@
 🍽 Food Delivery Analytics Dashboard
 📌 Project Overview
 
-The Food Delivery Analytics Dashboard is a data analytics project designed to analyze food delivery operations and generate meaningful insights from raw order data.
+The Food Delivery Analytics Dashboard is a complete end-to-end data analytics project designed to analyze food delivery operations and generate meaningful business insights from raw order data.
 
-This project involves data cleaning, data transformation, database integration, and visualization to understand customer behavior, revenue patterns, delivery performance, and operational efficiency.
+This project focuses on:
 
-The final output is an interactive dashboard built using Streamlit and connected to a MySQL database, allowing users to explore key business insights dynamically.
+Data Cleaning & Preprocessing
+Exploratory Data Analysis (EDA)
+Feature Engineering
+MySQL Database Integration
+Interactive Dashboard Development
+Business Insight Generation
+
+The final output is an interactive Streamlit dashboard connected with MySQL, allowing users to analyze customer behavior, revenue trends, delivery performance, restaurant performance, and operational insights in real time.
 
 🎯 Project Objectives
 
-The main objectives of this project are:
+The primary objectives of this project are:
 
 Analyze customer ordering behavior
-
-Track revenue and profit trends
-
-Evaluate delivery performance
-
-Analyze restaurant ratings and cancellations
-
-Provide operational insights for decision making
-
-Build an interactive analytics dashboard for data exploration
-
+Monitor revenue and profitability trends
+Evaluate delivery efficiency
+Identify operational issues causing cancellations
+Analyze restaurant performance
+Build a scalable analytics dashboard for business decision-making
 🛠 Technologies Used
 Technology	Purpose
-Python	Data analysis and processing
-Pandas	Data cleaning and transformation
+Python	Data analysis & dashboard development
+Pandas	Data cleaning & transformation
+NumPy	Numerical operations
+Matplotlib	Data visualization
+Plotly	Interactive dashboard charts
 MySQL	Database storage
-SQLAlchemy	Database connection between Python and MySQL
-Streamlit	Interactive dashboard development
-Plotly	Data visualization
-📊 Dataset Description
-
-The dataset contains information related to food delivery operations including:
-
-Order_ID – Unique identifier for each order
-
-Customer_ID – Unique customer identifier
-
-City – City where the order was placed
-
-Cuisine_Type – Type of cuisine ordered
-
-Order_Value – Total order amount
-
-Delivery_Time_Min – Delivery time in minutes
-
-Delivery_Rating – Customer rating for delivery service
-
-Restaurant_Rating – Restaurant rating
-
-Distance_km – Distance between restaurant and delivery location
-
-Payment_Mode – Payment method used
-
-Order_Status – Order completion or cancellation status
-
-Cancellation_Reason – Reason for cancelled orders
-
-Discount_Applied – Discount applied on the order
-
-Profit_Margin – Profit margin for the order
-
-📓 Notebook Explanation
+SQLAlchemy	Python-MySQL connection
+PyMySQL	MySQL database connector
+Streamlit	Interactive dashboard application
+📂 Project Structure
+Food-Delivery-Analytics/
+│
+├── FOOD_ANALYSIS_PROJECT.ipynb
+├── online_F_A.ipynb
+├── app.py
+├── README.md
+📓 File Explanation
 1️⃣ FOOD_ANALYSIS_PROJECT.ipynb
 
-This notebook performs the first level of data cleaning and preprocessing.
+This notebook contains the initial level of data preprocessing and cleaning.
 
-Tasks performed in this notebook:
-
-Data exploration
-
+Tasks Performed
+Data loading using Pandas
+Initial dataset exploration
 Identifying missing values
-
-Basic data cleaning
-
-Standardizing column values
-
-Preparing the dataset for further processing
-
-This step ensures that the raw dataset becomes structured and ready for advanced cleaning.
+Handling invalid data
+Removing duplicates
+Converting data types
+Basic Exploratory Data Analysis (EDA)
+Data Cleaning Methods Used
+isnull()
+fillna()
+replace()
+drop_duplicates()
+astype()
+to_datetime()
 
 2️⃣ online_F_A.ipynb
 
-This notebook performs the second level of data cleaning and transformation.
+This notebook contains the advanced data cleaning and feature engineering process.
 
-Tasks performed:
+Tasks Performed
+Advanced missing value handling
+Delivery time preprocessing
+Feature engineering
+Data transformation
+Analytical column creation
+Final dataset preparation
+Feature Engineering Methods Used
+Weekend / Weekday classification
+Distance binning
+Age group categorization
+Profit percentage calculation
+Delivery category creation
+Pandas Functions Used
+groupby()
+transform()
+apply()
+cut()
+value_counts()
+median()
+mean()
 
-Filling remaining missing values
+3️⃣ app.py
 
-Data formatting and transformation
+This file contains the complete dashboard application.
 
-Handling inconsistent data entries
-
-Preparing the final cleaned dataset
-
-After this stage, the dataset is ready to be stored in the MySQL database for further analysis.
-
+Main Functions
+Connects Python with MySQL Workbench using SQLAlchemy
+Loads cleaned data from MySQL
+Performs dashboard preprocessing
+Creates interactive visualizations
+Generates business insights using Streamlit and Plotly
 🗄 Database Integration
 
-The cleaned dataset is stored in a MySQL database.
+The cleaned dataset is stored in a MySQL database for structured data management and scalable querying.
 
-Python connects to the database using SQLAlchemy.
+Database Features
+Structured table creation
+SQL-based data storage
+Python-MySQL integration
+Real-time dashboard querying
+Database Connection
 
-Example connection code:
+The project uses:
 
+SQLAlchemy
+PyMySQL
+Example Connection
 from sqlalchemy import create_engine
 
 engine = create_engine(
 "mysql+pymysql://username:password@localhost/database_name"
 )
+📊 Dashboard Features
 
-The data is then retrieved using SQL queries and loaded into a Pandas DataFrame.
+The Streamlit dashboard includes:
 
-📊 Streamlit Dashboard (app.py)
-
-The app.py file contains the main application code for the dashboard.
-
-It performs the following tasks:
-
-Connects Python to MySQL Workbench
-
-Retrieves cleaned data from the database
-
-Performs additional preprocessing for analytics
-
-Creates an interactive dashboard using Streamlit
-
-Generates multiple analytical insights
-
-📈 Dashboard Features
-
-The dashboard provides interactive filters and analytical insights including:
-
-City filter
-
-Cuisine filter
-
-Payment mode filter
-
-Dynamic KPI metrics
-
-Interactive charts and graphs
-
-📊 Key Performance Indicators (KPIs)
-
-The dashboard displays important business metrics such as:
-
+📌 KPI Metrics
 Total Orders
-
 Total Revenue
-
 Average Order Value
-
 Average Delivery Time
-
 Cancellation Rate
-
 Average Delivery Rating
 
-These KPIs help quickly understand overall business performance.
-
 🔍 Analytical Insights
-Customer & Order Analysis
-
+1️⃣ Customer & Order Analysis
 Top spending customers
-
 Age group vs order value analysis
+Weekend vs weekday order patterns
 
-Weekend vs weekday ordering patterns
-
-Revenue & Profit Analysis
-
+2️⃣ Revenue & Profit Analysis
 Monthly revenue trends
-
 Impact of discounts on profit margins
+High revenue cities analysis
 
-Revenue contribution by city
-
-Delivery Performance
-
+3️⃣ Delivery Performance
 Average delivery time by city
+Distance vs delivery time analysis
+Delivery rating vs delivery time relationship
 
-Distance vs delivery time relationship
-
-Delivery rating vs delivery time analysis
-
-Restaurant Performance
-
+4️⃣ Restaurant Performance
 Top-rated restaurants
+Cancellation rate by restaurant
+Cuisine-wise performance analysis
 
-Restaurant-wise cancellation analysis
-
-Operational Insights
-
+5️⃣ Operational Insights
 Payment mode preferences
-
 Cancellation reason analysis
+Business operational trends
+
+📈 Visualization Techniques Used
+
+The project uses multiple visualization techniques including:
+
+Bar Charts
+Line Charts
+Scatter Plots
+Pie Charts
+Donut Charts
+Box Plots
+Violin Plots
+
+Interactive visualizations are created using Plotly for a better user experience.
+
+⚙️ Data Preprocessing Workflow
+Step 1 — Raw Data Cleaning
+Missing value handling
+Invalid value correction
+Duplicate removal
+
+Step 2 — Feature Engineering
+Month extraction
+Distance categorization
+Age grouping
+Profit calculations
+
+Step 3 — Database Storage
+MySQL table creation
+CSV import into MySQL
+SQLAlchemy integration
+
+Step 4 — Dashboard Development
+Streamlit dashboard creation
+Interactive filtering
+KPI generation
+Visualization development
+
+📊 Dashboard Filters
+
+The dashboard provides interactive filters for:
+
+City
+Cuisine Type
+Payment Mode
+
+These filters allow dynamic business analysis.   
+
+# 
